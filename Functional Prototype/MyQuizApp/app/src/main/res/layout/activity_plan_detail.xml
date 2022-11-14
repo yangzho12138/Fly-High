@@ -42,7 +42,21 @@
             android:layout_height="match_parent"
             android:text="Total Price"
             android:layout_marginLeft="60dp"></TextView>
-        
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:background="@drawable/notes"
+            android:layout_marginLeft="20dp"></EditText>
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:text="----"
+            android:layout_marginLeft="10dp"></TextView>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:background="@drawable/notes"
+            android:layout_marginLeft="10dp"></EditText>
     </LinearLayout>
 
     <LinearLayout

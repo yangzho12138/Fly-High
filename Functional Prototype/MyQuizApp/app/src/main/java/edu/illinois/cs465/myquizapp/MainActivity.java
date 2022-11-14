@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+import edu.illinois.cs465.myquizapp.db.Database;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override

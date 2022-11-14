@@ -7,6 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.duffel.model.OfferCollection;
+import com.duffel.model.response.Offer;
 import com.duffel.model.response.OfferResponse;
 
 import java.util.List;
@@ -29,7 +30,8 @@ public class ExampleUnitTest {
         OfferCollection res = GetFlights.searchFlights("NYC","ATL","round_trip","2022-12-01","2022-12-05", "adult", null, "economy");
         List data = res.getData();
         for(Object d: data){
-            System.out.println(d);
+            Offer offer = (Offer) d;
+            System.out.println();
         }
     }
 }
