@@ -37,7 +37,7 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.advanced_op) {
-            Intent intent = new Intent(MainActivity.this, AdvancedActivity.class);
+            Intent intent = new Intent(FlightkprConfigActivity.this, AdvancedActivity.class);
             startActivity(intent);
         }
         else if (v.getId() == R.id.confirm){
@@ -46,7 +46,7 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
             String from = from_location.getText().toString();
             String to = to_location.getText().toString();
 
-            Intent intent = new Intent(MainActivity.this, FlightkprDetailsActivity.class);
+            Intent intent = new Intent(FlightkprConfigActivity.this, FlightkprDetailsActivity.class);
             intent.putExtra("lower_bound", low);
             intent.putExtra("upper_bound", upper);
             intent.putExtra("from_location", from);
