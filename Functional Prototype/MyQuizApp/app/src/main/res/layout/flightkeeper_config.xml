@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Continuous slider -->
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,292 +7,124 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="#CAE2F6"
-    tools:context=".MainActivity">
+    tools:context=".flightkeeper_config_Activity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/from"
+            android:textColorHint="#040404"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/from_location"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:hint="@string/location"
+            android:backgroundTint="@color/white"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="#C1C1C1"
+            android:textStyle="italic"
+            android:layout_marginStart="30dp"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/advanced_filters"
-            android:textColor="@color/black"
-            android:textSize="30sp"/>
+            android:text="@string/to"
+            android:textColorHint="#000000"
+            android:textStyle="bold"/>
 
+        <EditText
+            android:id="@+id/to_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:backgroundTint="@color/white"
+            android:hint="@string/location"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="#C1C1C1"
+            android:textStyle="italic"
+            android:layout_marginStart="30dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
 
         <TextView
-            android:id="@+id/stops"
-            android:layout_margin="20dp"
-            android:text="@string/stops"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.slider.Slider
-            android:contentDescription="Enter stops you would like to have"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:stepSize="1"
-            android:valueFrom="0.0"
-            android:valueTo="3.0"
-            app:thumbColor="#1A7FCF"
-            app:thumbStrokeColor="#1F5098"
-            app:tickColor="#2196F3"
-            app:halo="#A3D5FB"
-            app:trackColor="@color/white"/>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/bags"
-            android:layout_margin="20dp"
-            android:text="@string/bags"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.slider.Slider
-            android:contentDescription="Enter how many bags you want"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:stepSize="1"
-            android:valueFrom="0.0"
-            android:valueTo="3.0"
-            app:thumbColor="#1A7FCF"
-            app:thumbStrokeColor="#1F5098"
-            app:tickColor="#2196F3"
-            app:halo="#A3D5FB"
-            app:trackColor="@color/white"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="@string/price"
-        android:textColor="@color/black" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lower_bound"
+            android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="@string/dollar">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="80dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/white"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <TextView
-            android:id="@+id/tilde"
-            android:text="@string/tilde"
-            android:textColor="@color/black"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/upper_bound"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="@string/dollar">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="80dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/white"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/duration"
-            android:layout_margin="20dp"
-            android:text="@string/duration"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-        <com.google.android.material.slider.Slider
-            android:id="@+id/slider"
-            android:layout_margin="5dp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/slider_desc"
-            app:thumbColor="#1A7FCF"
-            app:haloColor="#A3D5FB"
-            app:thumbStrokeColor="#1F5098"
-            app:tickColorActive="#195BAA"
-            app:trackColor="@color/white"
-            android:value="20.0"
-            android:valueFrom="0.0"
-            android:valueTo="100.0" />
-
-
-    </LinearLayout>
-
-
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+            android:text="@string/price_range"
+            android:textColorHint="#000000"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="12dp">
+            android:layout_marginTop="10dp">
 
-            <TextView
-                android:id="@+id/adult"
-                android:layout_margin="5dp"
-                android:text="@string/adult"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"/>
-
-            <Button
-                android:id="@+id/minus1"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:text="@string/minus"
-                android:backgroundTint="#9A5D80C6"
-                android:layout_marginStart="15dp"/>
-
-            <Button
-                android:id="@+id/add1"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:text="@string/add"
-                android:backgroundTint="#9A5D80C6"
-                android:layout_marginStart="80dp"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="1dp">
-
-            <TextView
-                android:id="@+id/children"
-                android:layout_margin="5dp"
-                android:text="@string/children"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/lower"
+                android:hint="@string/dollar"
+                android:inputType="number"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
 
-            <Button
-                android:id="@+id/minus2"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:text="@string/minus"
-                android:backgroundTint="#9A5D80C6"
-                android:layout_marginStart="15dp"/>
+            <TextView
+                android:id="@+id/tilde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tilde"/>
 
-            <Button
-                android:id="@+id/add2"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:text="@string/add"
-                android:backgroundTint="#9A5D80C6"
-                android:layout_marginStart="80dp"/>
+            <EditText
+                android:id="@+id/upper"
+                android:hint="@string/dollar"
+                android:inputType="number"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 
-        <LinearLayout
+
+        <Button
+            android:id="@+id/advanced_op"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="9dp">
+            android:text="@string/advanced_options"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#9A656565"/>
 
-            <TextView
-                android:id="@+id/infant"
-                android:layout_margin="5dp"
-                android:text="@string/infants"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-            <Button
-                android:id="@+id/minus3"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:text="@string/minus"
-                android:backgroundTint="#9A5D80C6"
-                android:layout_marginStart="15dp"/>
 
-            <Button
-                android:id="@+id/add3"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:text="@string/add"
-                android:backgroundTint="#9A5D80C6"
-                android:layout_marginStart="80dp"/>
+            android:text="@string/confirm"
+            android:backgroundTint="#9A5D80C6"/>
 
-        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save"
-        android:backgroundTint="#9A1B5EE3"
-        android:layout_marginTop="30dp"/>
-
-
-
-
 </LinearLayout>
+
+
