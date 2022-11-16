@@ -19,7 +19,7 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.flightkeeper_config);
 
         advanced_op = (Button) findViewById(R.id.advanced_op);
         advanced_op.setOnClickListener(this);
