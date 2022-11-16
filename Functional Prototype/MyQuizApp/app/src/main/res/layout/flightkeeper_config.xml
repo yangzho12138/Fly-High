@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#CAE2F6"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/from"
+            android:textColorHint="#040404"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/from_location"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:hint="@string/location"
+            android:backgroundTint="@color/white"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="#C1C1C1"
+            android:textStyle="italic"
+            android:layout_marginStart="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            android:textColorHint="#000000"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/to_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F2F2F2"
+            android:backgroundTint="@color/white"
+            android:hint="@string/location"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="#C1C1C1"
+            android:textStyle="italic"
+            android:layout_marginStart="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@+id/false_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price_range"
+            android:textColorHint="#000000"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/lower"
+                android:hint="@string/dollar"
+                android:inputType="number"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tilde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tilde"/>
+
+            <EditText
+                android:id="@+id/upper"
+                android:hint="@string/dollar"
+                android:inputType="number"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/advanced_op"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced_options"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#9A656565"/>
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:text="@string/confirm"
+            android:backgroundTint="#9A5D80C6"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
