@@ -15,13 +15,19 @@ public class Database {
     public static Map<String, Map<String, Set<Flight>>> combinationsInCollection = new HashMap<>(); // collectionName, <combinationName, Flights in this combination>
     public static Map<String, Filter> autoFilter = new HashMap<>(); // collectionName, filter
 
-    public static void addCollection(String collectionName, @NonNull Flight flight){
-        if(collections.containsKey(collectionName)){
+    static {
+        Flight f1 = new Flight("1", "JFK", "CMI", "8:30am", "10:30am", "123", "AA", 2);
+        Flight f2 = new Flight("1", "JFK", "CMI", "11:30am", "2:30pm", "250", "AA", 2);
+        Flight f3 = new Flight("1", "JFK", "CMI", "2:30am", "5:30am", "100", "UA", 1);
+    }
+
+    public static void addCollection(String collectionName) {
+        collections.put(collectionName, new HashSet<Flight>());
+    }
+
+    public static void addFlightToCollection(String collectionName, @NonNull Flight flight){
+        if(collections.containsKey(collectionName)) {
             Set<Flight> flights = collections.get(collectionName);
-            flights.add(flight);
-            collections.put(collectionName, flights);
-        }else{
-            Set<Flight> flights = new HashSet<>();
             flights.add(flight);
             collections.put(collectionName, flights);
         }

@@ -15,12 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 public class FlightKeeperDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static List<Flight> flights;
+    public static List<Flight> flights = new ArrayList<>();
+
+    public static Map<String, Set<Flight>> collections = Database.collections;
 
 
     @Override
@@ -38,11 +42,10 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
 
     private void getDetailView() {
         Intent detailView = getIntent();
-        int collectionId = detailView.getIntExtra("id", 0);
-        flights = new ArrayList<Flight>();
-        flights.add(new Flight("1", "JFK", "CMI", "8:30am", "10:30am", "123", "AA", 2));
-        flights.add(new Flight("1", "JFK", "CMI", "11:30am", "2:30pm", "250", "AA", 2));
-        flights.add(new Flight("1", "JFK", "CMI", "2:30am", "5:30am", "100", "UA", 1));
+        String collectionName = detailView.getStringExtra("collectionName");
+        for (Flight f : collections.get(collectionName)) {
+            flights.add(f);
+        }
     }
 
 
@@ -83,6 +86,5 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
             startActivity(mainView);
         }
     }
-
-
+    
 }
