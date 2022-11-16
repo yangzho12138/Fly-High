@@ -1,4 +1,4 @@
-package edu.illinois.cs465.myquizapp.flightkeeper;
+package edu.illinois.cs465.myquizapp;
 
 import android.content.Context;
 import android.content.Intent;

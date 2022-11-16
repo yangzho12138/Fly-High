@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import edu.illinois.cs465.myquizapp.db.Database;
+import edu.illinois.cs465.myquizapp.Database;
 import edu.illinois.cs465.myquizapp.pojo.Combination;
 import edu.illinois.cs465.myquizapp.pojo.Flight;
 

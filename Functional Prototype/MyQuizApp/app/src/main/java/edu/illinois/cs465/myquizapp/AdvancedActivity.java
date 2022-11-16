@@ -1,4 +1,4 @@
-package edu.illinois.cs465.myquizapp.flightkeeper;
+package edu.illinois.cs465.myquizapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

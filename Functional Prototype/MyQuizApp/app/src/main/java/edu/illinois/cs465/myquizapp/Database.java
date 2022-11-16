@@ -1,4 +1,4 @@
-package edu.illinois.cs465.myquizapp.db;
+package edu.illinois.cs465.myquizapp;
 
 import androidx.annotation.NonNull;
 

@@ -1,4 +1,4 @@
-package edu.illinois.cs465.myquizapp.flightkeeper;
+package edu.illinois.cs465.myquizapp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.illinois.cs465.myquizapp.R;
 import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 public class FlightKeeperDetailActivity extends AppCompatActivity implements View.OnClickListener {

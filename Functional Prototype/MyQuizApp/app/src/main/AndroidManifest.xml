@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyQuizApp">
         <activity
-            android:name=".flightkeeper.FlightKeeperMainActivity"
+            android:name=".FlightKeeperMainActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".flightkeeper.FlightKeeperDetailActivity"
+            android:name=".FlightKeeperDetailActivity"
             android:exported="true">
         </activity>
     </application>

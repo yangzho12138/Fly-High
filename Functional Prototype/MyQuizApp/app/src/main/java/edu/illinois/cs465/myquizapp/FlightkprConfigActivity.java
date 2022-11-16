@@ -1,4 +1,4 @@
-package edu.illinois.cs465.myquizapp.flightkeeper;
+package edu.illinois.cs465.myquizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import edu.illinois.cs465.myquizapp.FlightKeeperDetailActivity;
 import edu.illinois.cs465.myquizapp.R;
 
 public class FlightkprConfigActivity extends AppCompatActivity implements View.OnClickListener {
