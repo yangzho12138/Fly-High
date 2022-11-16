@@ -1,5 +1,6 @@
-package edu.illinois.cs465.fly_high;
+package edu.illinois.cs465.myquizapp.flightkeeper;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.slider.Slider;
+
+import edu.illinois.cs465.myquizapp.R;
 
 
 public class AdvancedActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,7 +27,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.advanced);
+        setContentView(R.layout.advanced_filter);
 
         Slider stop_slider = findViewById(R.id.stop_slider);
         Slider bag_slider = findViewById(R.id.bag_slider);
@@ -100,6 +103,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
 
 
         stop_slider.addOnChangeListener(new Slider.OnChangeListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onValueChange(@NonNull Slider slider, float stop_value, boolean fromUser) {
                 stop_val = (int)stop_value;
@@ -107,6 +111,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
         });
 
         bag_slider.addOnChangeListener(new Slider.OnChangeListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onValueChange(@NonNull Slider slider, float bag_value, boolean fromUser) {
                 bag_val = (int)bag_value;
@@ -114,6 +119,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
         });
 
         duration_slider.addOnChangeListener(new Slider.OnChangeListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onValueChange(@NonNull Slider slider, float duration_value, boolean fromUser) {
                 duration_val = (int)duration_value;
@@ -128,7 +134,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.save_button) {
-            Intent intent = new Intent(AdvancedActivity.this, MainActivity.class);
+            Intent intent = new Intent(AdvancedActivity.this, AdvancedActivity.class);
             intent.putExtra("stops", stop_val);
             intent.putExtra("bags", bag_val);
             intent.putExtra("duration", duration_val);

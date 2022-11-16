@@ -1,4 +1,4 @@
-package edu.illinois.cs465.fly_high;
+package edu.illinois.cs465.myquizapp.flightkeeper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import edu.illinois.cs465.myquizapp.R;
 
 public class FlightkprConfigActivity extends AppCompatActivity implements View.OnClickListener {
     private Button advanced_op;
@@ -46,7 +48,7 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
             String from = from_location.getText().toString();
             String to = to_location.getText().toString();
 
-            Intent intent = new Intent(FlightkprConfigActivity.this, FlightkprDetailsActivity.class);
+            Intent intent = new Intent(FlightkprConfigActivity.this, FlightKeeperDetailActivity.class);
             intent.putExtra("lower_bound", low);
             intent.putExtra("upper_bound", upper);
             intent.putExtra("from_location", from);
