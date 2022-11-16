@@ -2,10 +2,20 @@ package edu.illinois.cs465.myquizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.illinois.cs465.myquizapp.flightkeeper.FlightKeeperDetailActivity;
+import edu.illinois.cs465.myquizapp.flightkeeper.FlightKeeperMainActivity;
+import edu.illinois.cs465.myquizapp.pojo.Collection;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button trueButton;
@@ -29,8 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.true_button) {
             Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
         } else if (v.getId() == R.id.false_button) {
+            Intent mainView = new Intent(this, FlightKeeperMainActivity.class);
+            startActivity(mainView);
             Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
         }
     }
-
 }
