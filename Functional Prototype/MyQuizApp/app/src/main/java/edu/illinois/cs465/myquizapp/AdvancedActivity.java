@@ -134,7 +134,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.save_button) {
-            Intent intent = new Intent(AdvancedActivity.this, AdvancedActivity.class);
+            Intent intent = new Intent(AdvancedActivity.this, FlightkprConfigActivity.class);
             intent.putExtra("stops", stop_val);
             intent.putExtra("bags", bag_val);
             intent.putExtra("duration", duration_val);
