@@ -22,6 +22,8 @@ import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 public class FlightKeeperDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static String collectionName;
+
     public static List<Flight> flights = new ArrayList<>();
 
     public static Map<String, Set<Flight>> collections = Database.collections;
@@ -34,6 +36,9 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
 
         getDetailView();
 
+        TextView title = (TextView) findViewById(R.id.flight_keeper_title);
+        title.setText(this.collectionName);
+
         ListView listView = (ListView) findViewById(R.id.flights);
         FlightListAdapter adapter = new FlightListAdapter(this, 0, flights);
         listView.setAdapter(adapter);
@@ -43,6 +48,8 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
     private void getDetailView() {
         Intent detailView = getIntent();
         String collectionName = detailView.getStringExtra("collectionName");
+
+        this.collectionName = collectionName;
         for (Flight f : collections.get(collectionName)) {
             flights.add(f);
         }
@@ -85,6 +92,15 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
             Intent mainView = new Intent(this, FlightKeeperMainActivity.class);
             startActivity(mainView);
         }
+        else if (view.getId() == R.id.configuration) {
+            Intent intent = new Intent(this, FlightkprConfigActivity.class);
+            startActivity(intent);
+        }
+        else if (view.getId() == R.id.combination) {
+            Intent intent = new Intent(this, PlanActivity.class);
+            startActivity(intent);
+        }
+
     }
     
 }

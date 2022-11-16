@@ -16,9 +16,14 @@ public class Database {
     public static Map<String, Filter> autoFilter = new HashMap<>(); // collectionName, filter
 
     static {
+        Set<Flight> set = new HashSet<>();
         Flight f1 = new Flight("1", "JFK", "CMI", "8:30am", "10:30am", "123", "AA", 2);
         Flight f2 = new Flight("1", "JFK", "CMI", "11:30am", "2:30pm", "250", "AA", 2);
         Flight f3 = new Flight("1", "JFK", "CMI", "2:30am", "5:30am", "100", "UA", 1);
+        set.add(f1);
+        set.add(f2);
+        set.add(f3);
+        collections.put("My Trip to Champaign", set);
     }
 
     public static void addCollection(String collectionName) {
