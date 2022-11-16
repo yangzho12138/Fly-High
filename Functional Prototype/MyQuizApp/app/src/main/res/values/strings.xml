@@ -1,6 +1,27 @@
 <resources>
-    <string name="app_name">MyQuizApp</string>
+    <string name="app_name">fly-high</string>
+    <string name="from">FROM</string>
+    <string name="to">  TO</string>
+    <string name="price_range">Price Range</string>
+    <string name="advanced_options"> > Advanced Options</string>
+    <string name="advanced_filters"> Advanced Filters</string>
+    <string name="confirm">Confirm</string>
+    <string name="location">Country/City</string>
+    <string name="dollar">$</string>
+    <string name="tilde">-</string>
+    <string name="stops">Stops</string>
+    <string name="bags">Bags</string>
+    <string name="price">Price</string>
+    <string name="duration">Duration</string>
+    <string name="adult">Adults</string>
+    <string name="children">Children</string>
+    <string name="infants">Infants</string>
+    <string name="slider_desc">time</string>
+    <string name="save">Save</string>
+    <string name="add">+</string>
+    <string name="minus">-</string>
     <string name="question_message_text">Is Chicago the capital of Illinois?</string>
     <string name="true_button_text">TRUE</string>
     <string name="false_button_text">FALSE</string>
+
 </resources>
