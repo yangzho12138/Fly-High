@@ -23,6 +23,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
     public int adult_count;
     public int children_count;
     public int infant_count;
+    public String pageName = "advanced";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +142,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("adult_cnt", adult_count);
             intent.putExtra("children_cnt", children_count);
             intent.putExtra("infant_cnt", infant_count);
+            intent.putExtra("lastpage", pageName);
             startActivity(intent);
         }
     }
