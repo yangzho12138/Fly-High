@@ -24,7 +24,7 @@ import edu.illinois.cs465.myquizapp.pojo.Flight;
 public class FlightKeeperDetailActivity extends AppCompatActivity {
 
     public static String collectionName;
-
+    public String pageName = "details";
     public static List<Flight> flights = new ArrayList<>();
 
 
@@ -46,6 +46,7 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
         configuration.setOnClickListener((v) -> {
             Intent intent = new Intent(this, FlightkprConfigActivity.class);
             intent.putExtra("collectionName", collectionName);
+            intent.putExtra("lastpage", pageName);
             startActivity(intent);
         });
 
