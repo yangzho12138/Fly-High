@@ -1,12 +1,19 @@
 package edu.illinois.cs465.myquizapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +23,7 @@ import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 public class FlightKeeperMainActivity extends AppCompatActivity {
 
-    public static Map<String, Set<Flight>> collections = Database.collections;
+    Button openDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +31,7 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
         setContentView(R.layout.flightkeeper_main);
 
         List<String> collectionNames = new ArrayList<>();
-        for (Map.Entry entry : this.collections.entrySet()) {
+        for (Map.Entry entry : Database.collections.entrySet()) {
             collectionNames.add(entry.getKey().toString());
         }
 
@@ -41,6 +48,33 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
                 detailView.putExtra("collectionName", collectionName);
                 startActivity(detailView);
             }
+        });
+
+        openDialog = findViewById(R.id.add_new_keeper);
+        openDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showCustomDialog();
+            }
+        });
+
+    }
+
+    void showCustomDialog() {
+        final Dialog dialog = new Dialog(FlightKeeperMainActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.flightkeeper_addnew);
+        dialog.show();
+
+        TextInputEditText text = dialog.findViewById(R.id.textField);
+        Button saveButton = dialog.findViewById(R.id.save);
+
+        saveButton.setOnClickListener((v) -> {
+            String name = text.getText().toString();
+            Database.addCollection(name);
+            dialog.dismiss();
+            this.recreate();
         });
     }
 

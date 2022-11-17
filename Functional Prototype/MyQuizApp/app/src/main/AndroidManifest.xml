@@ -21,6 +21,14 @@
             android:name=".FlightKeeperDetailActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".FlightkprConfigActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".AdvancedActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

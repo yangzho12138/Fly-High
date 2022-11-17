@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,13 +21,11 @@ import java.util.Set;
 
 import edu.illinois.cs465.myquizapp.pojo.Flight;
 
-public class FlightKeeperDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class FlightKeeperDetailActivity extends AppCompatActivity {
 
     public static String collectionName;
 
     public static List<Flight> flights = new ArrayList<>();
-
-    public static Map<String, Set<Flight>> collections = Database.collections;
 
 
     @Override
@@ -43,6 +42,20 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
         FlightListAdapter adapter = new FlightListAdapter(this, 0, flights);
         listView.setAdapter(adapter);
 
+        Button configuration = findViewById(R.id.configuration);
+        configuration.setOnClickListener((v) -> {
+            Intent intent = new Intent(this, FlightkprConfigActivity.class);
+            intent.putExtra("collectionName", collectionName);
+            startActivity(intent);
+        });
+
+        Button combination = findViewById(R.id.combination);
+        combination.setOnClickListener((v) -> {
+            Intent intent = new Intent(this, PlanActivity.class);
+            intent.putExtra("collectionName", collectionName);
+            startActivity(intent);
+        });
+
     }
 
     private void getDetailView() {
@@ -50,7 +63,7 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
         String collectionName = detailView.getStringExtra("collectionName");
 
         this.collectionName = collectionName;
-        for (Flight f : collections.get(collectionName)) {
+        for (Flight f : Database.collections.get(collectionName)) {
             flights.add(f);
         }
     }
@@ -85,22 +98,4 @@ public class FlightKeeperDetailActivity extends AppCompatActivity implements Vie
             return convertView;
         }
     }
-
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.back) {
-            Intent mainView = new Intent(this, FlightKeeperMainActivity.class);
-            startActivity(mainView);
-        }
-        else if (view.getId() == R.id.configuration) {
-            Intent intent = new Intent(this, FlightkprConfigActivity.class);
-            startActivity(intent);
-        }
-        else if (view.getId() == R.id.combination) {
-            Intent intent = new Intent(this, PlanActivity.class);
-            startActivity(intent);
-        }
-
-    }
-    
 }

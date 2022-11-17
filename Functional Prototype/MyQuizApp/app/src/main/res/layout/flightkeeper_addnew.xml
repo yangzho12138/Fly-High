@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:text="Add New Flights Keeper"
             android:textColor="#0F52BA"
-            android:textSize="70px" />
+            android:textSize="40px" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,14 +30,14 @@
             >
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Flight Keeper Name"
+                    android:hint="Enter Name"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -52,17 +52,12 @@
             android:layout_marginTop="50px"
             >
             <Button
+                android:id="@+id/save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="150px"
                 android:backgroundTint="#0F52BA"
                 android:text="Save" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50px"
-                android:backgroundTint="#0F52BA"
-                android:text="Cancel" />
 
         </LinearLayout>
 
