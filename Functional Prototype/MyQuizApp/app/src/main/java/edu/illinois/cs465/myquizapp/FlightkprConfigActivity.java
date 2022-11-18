@@ -59,6 +59,7 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
         else if (intent.getStringExtra("lastpage").equals("advanced")) {
             bags = intent.getIntExtra("bags", 0);
             stops = intent.getIntExtra("stops", 0);
+            System.out.println("=======[config line 62]=======" + stops);
             duration = intent.getIntExtra("duration", 0);
             adult_cnt = intent.getIntExtra("adult_cnt", 0);
             children_cnt = intent.getIntExtra("children_cnt", 0);
@@ -66,10 +67,7 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
             collectionName = intent.getStringExtra("collectionName");
         }
 
-//        MyParcelable myParcelableObject = (MyParcelable) i.getParcelableExtra("name_of_extra");
-        System.out.println("======collectionName======" + collectionName);
         if (Database.autoFilter.containsKey(collectionName)){
-            System.out.println("here"+ Database.autoFilter.get(collectionName).origin);
             from_location.setText(Database.autoFilter.get(collectionName).origin);
             to_location.setText(Database.autoFilter.get(collectionName).destination);
             lower_bound.setText(Database.autoFilter.get(collectionName).lowPrice.toString());
@@ -89,13 +87,17 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
             String to = to_location.getText().toString();
             intent.putExtra("collectionName", collectionName);
 
-            Filter curr_filter = new Filter();
-            curr_filter.origin = from;
-            curr_filter.destination = to;
-            curr_filter.lowPrice = low;
-            curr_filter.highPrice = upper;
+            if (!Database.autoFilter.containsKey(collectionName)){
 
-            Database.addAutoFilter(collectionName, curr_filter);
+                Filter curr_filter = new Filter();
+                curr_filter.origin = from;
+                curr_filter.destination = to;
+                curr_filter.lowPrice = low;
+                curr_filter.highPrice = upper;
+
+                Database.addAutoFilter(collectionName, curr_filter);
+            }
+
 
             startActivity(intent);
         }
@@ -127,7 +129,6 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
             }
             else{
                 Database.addAutoFilter(collectionName, curr_filter);
-                System.out.println(Database.autoFilter);
             }
 
 
