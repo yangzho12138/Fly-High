@@ -163,7 +163,7 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
 
         save_button = (Button) findViewById(R.id.save_button);
         save_button.setOnClickListener(this);
-
+        
         if (Database.autoFilter.containsKey(collectionName)){
             stop_slider.setValue(Database.autoFilter.get(collectionName).stops);
             bag_slider.setValue(Database.autoFilter.get(collectionName).bags);
@@ -187,9 +187,8 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("infant_cnt", infant_count);
             intent.putExtra("lastpage", pageName);
             intent.putExtra("collectionName", collectionName);
-            System.out.println("==collectionname"+ collectionName);
+
             if (Database.autoFilter.containsKey(collectionName)){
-                System.out.println("in=============="+ Database.autoFilter.get(collectionName).origin);
                 Database.autoFilter.get(collectionName).stops = stop_val;
                 Database.autoFilter.get(collectionName).bags = bag_val;
                 Database.autoFilter.get(collectionName).duration = duration_val;
