@@ -22,7 +22,7 @@ import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements
+public class SearchActivity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener {
     String[] airline = { "Etihad", "American", "Delta"};
     String[] triptype = { "One-way", "Round", "Multi-city"};
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_search);
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
 
         // initiate the date picker and a button
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements
                 int mMonth = c.get(Calendar.MONTH); // current month
                 int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
                 // date picker dialog
-                datePickerDialog = new DatePickerDialog(MainActivity.this,
+                datePickerDialog = new DatePickerDialog(SearchActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
 
                             @Override
