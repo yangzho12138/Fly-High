@@ -1,8 +1,9 @@
 package edu.illinois.cs465.myquizapp.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Filter {
+public class Filter implements Serializable {
     public String origin;
     public String destination;
     public Integer stops;

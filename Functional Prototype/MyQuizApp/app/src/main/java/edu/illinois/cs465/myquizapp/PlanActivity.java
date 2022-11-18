@@ -77,6 +77,8 @@ public class PlanActivity extends AppCompatActivity{
                     System.out.println(selectCombination);
                     Intent detailView = new Intent(getApplicationContext(), PlanDetailActivity.class);
                     detailView.putExtra("selectCombination", selectCombination);
+                    detailView.putExtra("collectionName", collectionName);
+                    detailView.putExtra("lastPage", "plan");
                     startActivity(detailView);
                 }
             });

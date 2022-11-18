@@ -37,6 +37,10 @@
             android:name=".PlanDetailActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".PlanAddNewActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

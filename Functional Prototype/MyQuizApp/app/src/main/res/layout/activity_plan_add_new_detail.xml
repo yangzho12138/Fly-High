@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADD8E6"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:id="@+id/add_flight_in_plan_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#0F52BA"
+            android:textSize="70px" />
+
+        <ListView android:layout_width="fill_parent"
+            android:layout_height="500dp"
+            android:id="@+id/flights">
+        </ListView>
+    </LinearLayout>
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Click the flights to add it to the plan!"
+       android:layout_marginTop="50dp"
+       android:layout_marginLeft="50dp"
+       android:textSize="20dp"
+       android:textColor="#0F52BA"></TextView>
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:backgroundTint="#9A1B5EE3"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="150dp"/>
+
+</LinearLayout>

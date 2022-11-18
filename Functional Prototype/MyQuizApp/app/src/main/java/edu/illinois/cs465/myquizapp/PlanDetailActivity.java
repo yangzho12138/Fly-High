@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
+import android.view.ViewParent;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -24,7 +26,8 @@ import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 
 public class PlanDetailActivity extends AppCompatActivity implements View.OnClickListener{
-    private String planName;
+    String collectionName;
+    String combinationName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,9 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
 
         // get the info from the DB
         Combination selectCombination = (Combination) getIntent().getSerializableExtra("selectCombination");
-        System.out.println(selectCombination);
+
+        collectionName = getIntent().getStringExtra("collectionName");
+        combinationName = selectCombination.getCombinationName();
         // add combinationName to the screen
         TextView title = findViewById(R.id.plan_title);
         title.setText(selectCombination.getCombinationName());
@@ -48,11 +53,17 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
             FlightListAdapter adapter = new FlightListAdapter(this, 0, flights);
             listView.setAdapter(adapter);
         }
+
+        Button addNewFlight = findViewById(R.id.addPlanButton);
+        addNewFlight.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
+        Intent addNewView = new Intent(this, PlanAddNewActivity.class);
+        addNewView.putExtra("collectionName", collectionName);
+        addNewView.putExtra("combinationName", combinationName);
+        startActivity(addNewView);
     }
 
     class FlightListAdapter extends ArrayAdapter<Flight> {
@@ -84,11 +95,7 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
                 TextView totalPrice = convertView.findViewById(R.id.total_price);
                 totalPrice.setText(flight.getTotalPrice());
             }else{
-                ImageButton btn1 = convertView.findViewById(R.id.button1);
-                btn1.setVisibility(View.GONE);
-                ImageButton btn2 = convertView.findViewById(R.id.button2);
-                btn2.setVisibility(View.GONE);
-
+                convertView.setVisibility(View.GONE);
             }
             return convertView;
         }
