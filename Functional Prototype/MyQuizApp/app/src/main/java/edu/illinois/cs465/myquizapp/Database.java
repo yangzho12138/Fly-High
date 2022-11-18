@@ -17,6 +17,9 @@ public class Database {
 
     static {
         Set<Flight> set = new HashSet<>();
+//        if (collections.containsKey("My Trip to Champaign")) {
+//            System.out.println("number of item in the collection " + collections.get("My Trip to Champaign").size());
+//        }
         Flight f1 = new Flight("1", "JFK", "CMI", "8:30am", "10:30am", "123", "AA", 2);
         Flight f2 = new Flight("1", "JFK", "CMI", "11:30am", "2:30pm", "250", "AA", 2);
         Flight f3 = new Flight("1", "JFK", "CMI", "2:30am", "5:30am", "100", "UA", 1);

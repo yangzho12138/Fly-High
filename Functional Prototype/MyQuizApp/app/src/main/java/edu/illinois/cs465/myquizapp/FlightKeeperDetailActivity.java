@@ -57,6 +57,12 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button back = findViewById(R.id.back);
+        back.setOnClickListener((v) -> {
+            Intent intent = new Intent(this, FlightKeeperMainActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void getDetailView() {
@@ -64,8 +70,10 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
         String collectionName = detailView.getStringExtra("collectionName");
 
         this.collectionName = collectionName;
-        for (Flight f : Database.collections.get(collectionName)) {
-            flights.add(f);
+        if (Database.collections.containsKey(collectionName)) {
+            for (Flight f : Database.collections.get(collectionName)) {
+                flights.add(f);
+            }
         }
     }
 

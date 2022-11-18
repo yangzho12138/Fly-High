@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ADD8E6"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,36 +27,44 @@
             android:layout_height="fill_parent"
             android:id="@+id/flights">
         </ListView>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_marginTop="200px"
+        android:layout_marginBottom="200px"
+        android:layout_marginLeft="100px"
+        android:layout_marginRight="100px"
+        >
+
+        <Button
+            android:id="@+id/combination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:orientation="horizontal"
-            >
+            android:layout_gravity="left"
+            android:layout_marginRight="70px"
+            android:backgroundTint="#0F52BA"
+            android:text="Plan" />
 
-            <Button
-                android:id="@+id/combination"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#0F52BA"
-                android:text="Combination" />
+        <Button
+            android:id="@+id/configuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70px"
+            android:backgroundTint="#0F52BA"
+            android:text="Config" />
 
-            <Button
-                android:id="@+id/configuration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#0F52BA"
-                android:text="Configuration" />
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:backgroundTint="#0F52BA"
+            android:text="Back" />
 
-            <Button
-                android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#0F52BA"
-                android:text="Back" />
-
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

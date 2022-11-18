@@ -23,8 +23,6 @@ import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 public class FlightKeeperMainActivity extends AppCompatActivity {
 
-    Button openDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +48,7 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
             }
         });
 
-        openDialog = findViewById(R.id.add_new_keeper);
+        Button openDialog = findViewById(R.id.add_new_keeper);
         openDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +67,6 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
 
         TextInputEditText text = dialog.findViewById(R.id.textField);
         Button saveButton = dialog.findViewById(R.id.save);
-
         saveButton.setOnClickListener((v) -> {
             String name = text.getText().toString();
             Database.addCollection(name);
