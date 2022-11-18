@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,7 +33,7 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
 
         // get the info from the DB
         Combination selectCombination = (Combination) getIntent().getSerializableExtra("selectCombination");
-//        System.out.println(selectCombination);
+        System.out.println(selectCombination);
         // add combinationName to the screen
         TextView title = findViewById(R.id.plan_title);
         title.setText(selectCombination.getCombinationName());
@@ -63,22 +65,31 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             Flight flight = getItem(position);
+
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.flightkeeper_detail_card, parent, false);
             }
 
-            TextView departureTime = convertView.findViewById(R.id.departure_time);
-            departureTime.setText(flight.getDepartureTime());
-            TextView arrivalTime = convertView.findViewById(R.id.arrive_time);
-            arrivalTime.setText(flight.getArriveTime());
-            TextView origin = convertView.findViewById(R.id.origin);
-            origin.setText(flight.getOrigin());
-            TextView destination = convertView.findViewById(R.id.destination);
-            destination.setText(flight.getDestination());
-            TextView airline = convertView.findViewById(R.id.airline);
-            airline.setText(flight.getAirline());
-            TextView totalPrice = convertView.findViewById(R.id.total_price);
-            totalPrice.setText(flight.getTotalPrice());
+            if(flight != null){
+                TextView departureTime = convertView.findViewById(R.id.departure_time);
+                departureTime.setText(flight.getDepartureTime());
+                TextView arrivalTime = convertView.findViewById(R.id.arrive_time);
+                arrivalTime.setText(flight.getArriveTime());
+                TextView origin = convertView.findViewById(R.id.origin);
+                origin.setText(flight.getOrigin());
+                TextView destination = convertView.findViewById(R.id.destination);
+                destination.setText(flight.getDestination());
+                TextView airline = convertView.findViewById(R.id.airline);
+                airline.setText(flight.getAirline());
+                TextView totalPrice = convertView.findViewById(R.id.total_price);
+                totalPrice.setText(flight.getTotalPrice());
+            }else{
+                ImageButton btn1 = convertView.findViewById(R.id.button1);
+                btn1.setVisibility(View.GONE);
+                ImageButton btn2 = convertView.findViewById(R.id.button2);
+                btn2.setVisibility(View.GONE);
+
+            }
             return convertView;
         }
     }
