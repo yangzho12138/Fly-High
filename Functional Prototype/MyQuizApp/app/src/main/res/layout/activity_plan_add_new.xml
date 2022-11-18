@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Add New Flights Keeper"
+            android:text="Add New Flights Planner"
             android:textColor="#0F52BA"
             android:textSize="40px" />
 

@@ -20,6 +20,7 @@ public class Database {
 //        if (collections.containsKey("My Trip to Champaign")) {
 //            System.out.println("number of item in the collection " + collections.get("My Trip to Champaign").size());
 //        }
+        System.out.println("implement once");
         Flight f1 = new Flight("1", "JFK", "CMI", "8:30am", "10:30am", "123", "AA", 2);
         Flight f2 = new Flight("1", "JFK", "CMI", "11:30am", "2:30pm", "250", "AA", 2);
         Flight f3 = new Flight("1", "JFK", "CMI", "2:30am", "5:30am", "100", "UA", 1);
@@ -27,6 +28,7 @@ public class Database {
         set.add(f2);
         set.add(f3);
         collections.put("My Trip to Champaign", set);
+
     }
 
     public static void addCollection(String collectionName) {

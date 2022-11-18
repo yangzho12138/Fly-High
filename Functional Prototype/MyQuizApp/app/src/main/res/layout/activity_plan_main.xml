@@ -35,7 +35,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/add_new_keeper"
+                android:id="@+id/add_new_plan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30px"

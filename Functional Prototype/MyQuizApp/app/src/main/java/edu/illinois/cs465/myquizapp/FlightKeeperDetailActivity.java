@@ -25,7 +25,7 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
 
     public static String collectionName;
     public String pageName = "details";
-    public static List<Flight> flights = new ArrayList<>();
+    public List<Flight> flights = new ArrayList<>();
 
 
     @Override

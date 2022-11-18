@@ -31,20 +31,21 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
 
         // get the info from the DB
         Combination selectCombination = (Combination) getIntent().getSerializableExtra("selectCombination");
-        System.out.println(selectCombination);
+//        System.out.println(selectCombination);
         // add combinationName to the screen
         TextView title = findViewById(R.id.plan_title);
         title.setText(selectCombination.getCombinationName());
 
-        ListView listView = (ListView) findViewById(R.id.flights);
         Set<Flight> flightSet = selectCombination.getFlights();
-        List<Flight> flights = new ArrayList<>();
-        for(Flight f: flightSet){
-            flights.add(f);
+        if(flightSet != null){
+            ListView listView = (ListView) findViewById(R.id.flights);
+            List<Flight> flights = new ArrayList<>();
+            for(Flight f: flightSet){
+                flights.add(f);
+            }
+            FlightListAdapter adapter = new FlightListAdapter(this, 0, flights);
+            listView.setAdapter(adapter);
         }
-        FlightListAdapter adapter = new FlightListAdapter(this, 0, flights);
-        listView.setAdapter(adapter);
-
     }
 
     @Override
