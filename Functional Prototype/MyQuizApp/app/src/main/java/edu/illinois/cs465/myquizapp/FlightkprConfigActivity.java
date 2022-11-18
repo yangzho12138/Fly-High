@@ -59,7 +59,6 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
         else if (intent.getStringExtra("lastpage").equals("advanced")) {
             bags = intent.getIntExtra("bags", 0);
             stops = intent.getIntExtra("stops", 0);
-            System.out.println("=======[config line 62]=======" + stops);
             duration = intent.getIntExtra("duration", 0);
             adult_cnt = intent.getIntExtra("adult_cnt", 0);
             children_cnt = intent.getIntExtra("children_cnt", 0);
