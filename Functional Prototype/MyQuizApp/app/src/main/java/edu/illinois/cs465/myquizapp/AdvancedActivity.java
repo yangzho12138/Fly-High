@@ -24,11 +24,16 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
     public int children_count;
     public int infant_count;
     public String pageName = "advanced";
+    public String collectionName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.advanced_filter);
+
+        Intent previntent = getIntent();
+        collectionName = previntent.getStringExtra("collectionName");
+
 
         Slider stop_slider = findViewById(R.id.stop_slider);
         Slider bag_slider = findViewById(R.id.bag_slider);
@@ -37,11 +42,16 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
         Button adult_dec = findViewById(R.id.minus1);
         Button adult_inc = findViewById(R.id.add1);
         TextView adult_tv = findViewById(R.id.adult_cnt);
+
+
         adult_inc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 adult_count++;
                 adult_tv.setText(String.valueOf(adult_count));
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).adult_cnt = adult_count;
+                }
             }
         });
 
@@ -53,6 +63,9 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
                     adult_count=0;
                 }
                 adult_tv.setText(String.valueOf(adult_count));
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).adult_cnt = adult_count;
+                }
             }
         });
 
@@ -64,6 +77,9 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View view) {
                 children_count++;
                 children_tv.setText(String.valueOf(children_count));
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).children_cnt = children_count;
+                }
             }
         });
 
@@ -75,6 +91,9 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
                     children_count=0;
                 }
                 children_tv.setText(String.valueOf(children_count));
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).children_cnt = children_count;
+                }
             }
         });
 
@@ -86,6 +105,9 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View view) {
                 infant_count++;
                 infant_tv.setText(String.valueOf(infant_count));
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).infant_cnt = infant_count;
+                }
             }
         });
 
@@ -97,6 +119,9 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
                     infant_count = 0;
                 }
                 infant_tv.setText(String.valueOf(infant_count));
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).infant_cnt = infant_count;
+                }
             }
         });
 
@@ -108,6 +133,9 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onValueChange(@NonNull Slider slider, float stop_value, boolean fromUser) {
                 stop_val = (int)stop_value;
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).stops = stop_val;
+                }
             }
         });
 
@@ -116,6 +144,9 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onValueChange(@NonNull Slider slider, float bag_value, boolean fromUser) {
                 bag_val = (int)bag_value;
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).bags = bag_val;
+                }
             }
         });
 
@@ -124,11 +155,23 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onValueChange(@NonNull Slider slider, float duration_value, boolean fromUser) {
                 duration_val = (int)duration_value;
+                if (Database.autoFilter.containsKey(collectionName)){
+                    Database.autoFilter.get(collectionName).duration = duration_val;
+                }
             }
         });
 
         save_button = (Button) findViewById(R.id.save_button);
         save_button.setOnClickListener(this);
+
+        if (Database.autoFilter.containsKey(collectionName)){
+            stop_slider.setValue(Database.autoFilter.get(collectionName).stops);
+            bag_slider.setValue(Database.autoFilter.get(collectionName).bags);
+            duration_slider.setValue(Database.autoFilter.get(collectionName).duration);
+            adult_tv.setText(Database.autoFilter.get(collectionName).adult_cnt.toString());
+            children_tv.setText(Database.autoFilter.get(collectionName).children_cnt.toString());
+            infant_tv.setText(Database.autoFilter.get(collectionName).infant_cnt.toString());
+        }
 
     }
 
@@ -143,6 +186,17 @@ public class AdvancedActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("children_cnt", children_count);
             intent.putExtra("infant_cnt", infant_count);
             intent.putExtra("lastpage", pageName);
+            intent.putExtra("collectionName", collectionName);
+            System.out.println("==collectionname"+ collectionName);
+            if (Database.autoFilter.containsKey(collectionName)){
+                System.out.println("in=============="+ Database.autoFilter.get(collectionName).origin);
+                Database.autoFilter.get(collectionName).stops = stop_val;
+                Database.autoFilter.get(collectionName).bags = bag_val;
+                Database.autoFilter.get(collectionName).duration = duration_val;
+                Database.autoFilter.get(collectionName).adult_cnt = adult_count;
+                Database.autoFilter.get(collectionName).children_cnt = children_count;
+                Database.autoFilter.get(collectionName).infant_cnt = infant_count;
+            }
             startActivity(intent);
         }
     }
