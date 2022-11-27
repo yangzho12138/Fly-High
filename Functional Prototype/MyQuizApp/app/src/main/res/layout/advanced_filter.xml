@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Continuous slider -->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#CAE2F6"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced_filters"
+            android:textColor="@color/black"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/stops"
+            android:layout_margin="20dp"
+            android:text="@string/stops"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/stop_slider"
+            android:contentDescription="Enter stops you would like to have"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:stepSize="1"
+            android:valueFrom="0.0"
+            android:valueTo="3.0"
+            app:thumbColor="#1A7FCF"
+            app:thumbStrokeColor="#1F5098"
+            app:tickColor="#2196F3"
+            app:trackColor="@color/white"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bags"
+            android:layout_margin="20dp"
+            android:text="@string/bags"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/bag_slider"
+            android:contentDescription="Enter how many bags you want"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:stepSize="1"
+            android:valueFrom="0.0"
+            android:valueTo="3.0"
+            app:thumbColor="#1A7FCF"
+            app:thumbStrokeColor="#1F5098"
+            app:tickColor="#2196F3"
+            app:trackColor="@color/white"/>
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/price"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:text="@string/price"-->
+<!--        android:textColor="@color/black" />-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        >-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/lower_bound"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:hint="@string/dollar">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:backgroundTint="@color/white"/>-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/tilde"-->
+<!--            android:text="@string/tilde"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/upper_bound"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:hint="@string/dollar">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:backgroundTint="@color/white"/>-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--    </LinearLayout>-->
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/duration"
+            android:textColor="@color/black" />
+
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/duration_slider"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/slider_desc"
+            android:value="20.0"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            app:thumbColor="#1A7FCF"
+            app:thumbStrokeColor="#1F5098"
+            app:tickColorActive="#195BAA"
+            app:trackColor="@color/white" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="12dp">
+
+            <TextView
+                android:id="@+id/adult"
+                android:layout_margin="5dp"
+                android:text="@string/adult"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/minus1"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="@string/minus"
+                android:backgroundTint="#9A5D80C6"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:id="@+id/adult_cnt"
+                android:text="0"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/add1"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="@string/add"
+                android:backgroundTint="#9A5D80C6" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="1dp">
+
+            <TextView
+                android:id="@+id/children"
+                android:layout_margin="5dp"
+                android:text="@string/children"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/minus2"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="@string/minus"
+                android:backgroundTint="#9A5D80C6"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:id="@+id/children_cnt"
+                android:text="0"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/add2"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="@string/add"
+                android:backgroundTint="#9A5D80C6"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="9dp">
+
+            <TextView
+                android:id="@+id/infant"
+                android:layout_margin="5dp"
+                android:text="@string/infants"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/minus3"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="@string/minus"
+                android:backgroundTint="#9A5D80C6"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:id="@+id/infant_cnt"
+                android:text="0"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/add3"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="@string/add"
+                android:backgroundTint="#9A5D80C6"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:backgroundTint="#9A1B5EE3"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>

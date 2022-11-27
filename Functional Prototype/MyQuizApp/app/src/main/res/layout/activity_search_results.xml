@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchResults">
+    tools:context=".SearchResultsActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -31,77 +31,77 @@
             android:layout_gravity="center"
             android:paddingRight="20dp"/>
 
-            <TextView
-                android:id="@+id/from"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="From Here"
-                android:textSize="20dp"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingRight="20dp"/>
+        <TextView
+            android:id="@+id/from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From Here"
+            android:textSize="20dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
 
-            <TextView
-                android:id="@+id/to"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="To Here"
-                android:textSize="20dp"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingRight="20dp"/>
+        <TextView
+            android:id="@+id/to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Here"
+            android:textSize="20dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
 
-            <TextView
-                android:id="@+id/airline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Airline Here"
-                android:textSize="20dp"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingRight="20dp"/>
+        <TextView
+            android:id="@+id/airline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Airline Here"
+            android:textSize="20dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
 
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date Here"
-                android:textSize="20dp"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingRight="20dp"/>
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date Here"
+            android:textSize="20dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
 
-            <TextView
-                android:id="@+id/triptype"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="triptype here"
-                android:textSize="20dp"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingRight="20dp"/>
+        <TextView
+            android:id="@+id/triptype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="triptype here"
+            android:textSize="20dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
 
-            <TextView
-                android:id="@+id/number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="number here"
-                android:textSize="20dp"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingRight="20dp"/>
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="number here"
+            android:textSize="20dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

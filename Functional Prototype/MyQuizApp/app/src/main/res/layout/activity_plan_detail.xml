@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#CAE2F6"
+    tools:context=".PlanDetailActivity">
+
+    <TextView
+        android:id="@+id/plan_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#0F52BA"
+        android:textSize="70px" />
+
+    <ListView android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:id="@+id/flights"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="-100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <android.widget.Button
+            android:id="@+id/addPlanButton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20dp"
+            android:background="@drawable/round_button"
+            android:layout_marginLeft="100dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="Add More Flights"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Total Price"
+            android:layout_marginLeft="60dp"></TextView>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:background="@drawable/notes"
+            android:layout_marginLeft="20dp"></EditText>
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:text="----"
+            android:layout_marginLeft="10dp"></TextView>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:background="@drawable/notes"
+            android:layout_marginLeft="10dp"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alarm"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"></TextView>
+        <Switch
+            android:id="@+id/openAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"></Switch>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"></TextView>
+        <Switch
+            android:id="@+id/openEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"></Switch>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="Notes"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:enabled="true"
+        android:gravity="top"
+        android:minLines="8"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:background="@drawable/notes"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>

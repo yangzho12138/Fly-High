@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAE2F6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="495dp"
+        android:layout_marginLeft="100px"
+        android:layout_marginTop="200px"
+        android:layout_marginRight="100px"
+        android:layout_marginBottom="200px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#0F52BA"
+            android:textSize="70px" />
+
+        <ListView
+            android:id="@+id/combinations"
+            android:layout_width="fill_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"></ListView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/add_new_plan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:backgroundTint="#0F52BA"
+                android:text="Add New Plan" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
