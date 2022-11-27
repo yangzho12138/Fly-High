@@ -1,6 +1,8 @@
-package edu.illinois.cs465.projectmainpage.pojo;
+package edu.illinois.cs465.myquizapp.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class Combination implements Serializable {

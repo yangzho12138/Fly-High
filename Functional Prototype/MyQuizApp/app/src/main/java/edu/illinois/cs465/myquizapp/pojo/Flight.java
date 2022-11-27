@@ -1,6 +1,8 @@
-package edu.illinois.cs465.projectmainpage.pojo;
+package edu.illinois.cs465.myquizapp.pojo;
 
-public class Flight {
+import java.io.Serializable;
+
+public class Flight implements Serializable {
     private String id;
     private String origin;
     private String destination;

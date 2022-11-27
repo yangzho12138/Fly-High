@@ -1,9 +1,10 @@
-package edu.illinois.cs465.projectmainpage.pojo;
+package edu.illinois.cs465.myquizapp.pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Collection {
+public class Collection implements Serializable {
 
     public int id;
     public String collectionName;

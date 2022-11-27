@@ -1,16 +1,17 @@
-package edu.illinois.cs465.projectmainpage.pojo;
+package edu.illinois.cs465.myquizapp.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Filter {
-    private String origin;
-    private String destination;
-    private String departureTime;
-    private Integer stops;
-    private Integer bags;
-    private Integer travelerNum;
-    private List<String> travelerType;
-    private Integer lowPrice;
-    private Integer highPrice;
-
+public class Filter implements Serializable {
+    public String origin;
+    public String destination;
+    public Integer stops;
+    public Integer bags;
+    public Integer duration;
+    public Integer adult_cnt;
+    public Integer children_cnt;
+    public Integer infant_cnt;
+    public Integer lowPrice;
+    public Integer highPrice;
 }
