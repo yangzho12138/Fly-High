@@ -58,7 +58,8 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                String collectionName = listView.getItemAtPosition(position).toString();
+                Collection c = (Collection) listView.getItemAtPosition(position);
+                String collectionName = c.getCollectionName();
                 Intent detailView = new Intent(getApplicationContext(), FlightKeeperDetailActivity.class);
                 detailView.putExtra("collectionName", collectionName);
                 startActivity(detailView);
