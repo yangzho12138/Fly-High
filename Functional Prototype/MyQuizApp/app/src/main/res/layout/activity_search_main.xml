@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#ADD8E6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAE2F6"
+    android:gravity="center"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -28,12 +29,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="casual"
                 android:gravity="center"
                 android:paddingRight="20dp"
                 android:text="From:"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                />
 
             <SearchView
                 android:id="@+id/fromSearch"
@@ -54,12 +54,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="casual"
                 android:gravity="center"
                 android:paddingRight="48dp"
                 android:text="To:"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textSize="20dp" />
 
             <SearchView
                 android:id="@+id/toSearch"
@@ -77,25 +75,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="casual"
                 android:gravity="center"
                 android:paddingRight="27dp"
                 android:text="Date:"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/searchbutton"
                 android:hint="Select Your Departure Day"
                 android:padding="0dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                android:textSize="13sp"
+                android:textSize="13dp"
                 android:textStyle="bold"
+                android:backgroundTint="#2155BD"
                 />
 
         </LinearLayout>
@@ -129,12 +125,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:fontFamily="casual"
                 android:gravity="center"
                 android:paddingRight="10dp"
                 android:text="Travellers:"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textSize="20dp"/>
 
             <NumberPicker
                 android:id="@+id/picker"
@@ -148,10 +142,11 @@
 
             <ImageButton
                 android:id="@+id/Filters"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/filter_logo" />
+                android:background=""
+                android:src="@drawable/f_icon" />
 
         </LinearLayout>
 
@@ -161,7 +156,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:onClick="showDatePickerDialog"
-            android:text="Search!" />
+            android:text="Search!"
+            android:backgroundTint="#2155BD"/>
+
 
         <TextView
             android:id="@+id/collections"
@@ -169,41 +166,15 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:fontFamily="casual"
             android:gravity="center"
             android:text="Autofill from collections!"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="0"
-            android:background="@drawable/customborder">
-
-            <TableRow>
-
-                <Button
-                    android:onClick="newYorkAutofill"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:padding="3dp"
-                    android:text="Trip to New York"
-                    android:textSize="20dp" />
-            </TableRow>
-
-            <TableRow>
-
-                <Button
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:padding="3dip"
-                    android:text="Trip back Home"
-                    android:textSize="20dp" />
-            </TableRow>
-        </TableLayout>
+        <ListView android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:id="@+id/prev_collection">
+        </ListView>
 
         <ImageButton
             android:id="@+id/collectionButton"
