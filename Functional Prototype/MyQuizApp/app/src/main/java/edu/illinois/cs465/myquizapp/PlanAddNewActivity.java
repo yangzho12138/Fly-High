@@ -115,7 +115,7 @@ public class PlanAddNewActivity extends AppCompatActivity implements View.OnClic
 
             ImageButton btn1 = convertView.findViewById(R.id.purchase);
             btn1.setVisibility(View.GONE);
-            ImageButton btn2 = convertView.findViewById(R.id.delete);
+            Button btn2 = convertView.findViewById(R.id.delete);
             btn2.setVisibility(View.GONE);
 
             if(flight != null){

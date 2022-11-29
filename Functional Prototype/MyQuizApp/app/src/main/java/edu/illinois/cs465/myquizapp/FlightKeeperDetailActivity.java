@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import edu.illinois.cs465.myquizapp.pojo.Flight;
@@ -27,6 +29,7 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
     public String pageName = "details";
     public List<Flight> flights = new ArrayList<>();
 
+    public static List<String> media = Arrays.asList("media1", "media2", "media3", "media4");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +107,9 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
             airline.setText(flight.getAirline());
             TextView totalPrice = convertView.findViewById(R.id.total_price);
             totalPrice.setText(flight.getTotalPrice());
+
+//            ImageView image = convertView.findViewById(R.id.media);
+//            String random = media.get(0);
 
             Button delete = convertView.findViewById(R.id.delete);
             delete.setOnClickListener(new View.OnClickListener() {
