@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,8 @@ public class PlanAddNewActivity extends AppCompatActivity implements View.OnClic
     String combinationName;
     Combination selectCombination = new Combination(null, null);
 
+    public List<Integer> mediaList = new ArrayList<>();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,21 @@ public class PlanAddNewActivity extends AppCompatActivity implements View.OnClic
             List<Flight> flights = new ArrayList<>();
             for(Flight f: flightSet){
                 flights.add(f);
+                int random = getRandomNumber(1, 4);
+                switch(random) {
+                    case 1:
+                        mediaList.add(R.drawable.media1);
+                        break;
+                    case 2:
+                        mediaList.add(R.drawable.media2);
+                        break;
+                    case 3:
+                        mediaList.add(R.drawable.media3);
+                        break;
+                    case 4:
+                        mediaList.add(R.drawable.media4);
+                        break;
+                }
             }
             FlightListAdapter adapter = new FlightListAdapter(this, 0, flights);
             listView.setAdapter(adapter);
@@ -113,9 +131,9 @@ public class PlanAddNewActivity extends AppCompatActivity implements View.OnClic
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.flightkeeper_detail_card, parent, false);
             }
 
-            ImageButton btn1 = convertView.findViewById(R.id.button1);
+            ImageButton btn1 = convertView.findViewById(R.id.purchase);
             btn1.setVisibility(View.GONE);
-            ImageButton btn2 = convertView.findViewById(R.id.button2);
+            Button btn2 = convertView.findViewById(R.id.delete);
             btn2.setVisibility(View.GONE);
 
             if(flight != null){
@@ -131,8 +149,15 @@ public class PlanAddNewActivity extends AppCompatActivity implements View.OnClic
                 airline.setText(flight.getAirline());
                 TextView totalPrice = convertView.findViewById(R.id.total_price);
                 totalPrice.setText(flight.getTotalPrice());
+
+                ImageView media = convertView.findViewById(R.id.media);
+                media.setImageResource(mediaList.get(position));
             }
             return convertView;
         }
+    }
+
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }

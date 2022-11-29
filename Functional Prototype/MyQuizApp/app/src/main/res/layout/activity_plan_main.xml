@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CAE2F6">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="495dp"
+        android:layout_height="550dp"
         android:layout_marginLeft="100px"
         android:layout_marginTop="200px"
         android:layout_marginRight="100px"
@@ -25,6 +25,7 @@
             android:id="@+id/combinations"
             android:layout_width="fill_parent"
             android:layout_height="400dp"
+            android:focusable="true"
             android:layout_marginTop="10dp"></ListView>
 
 
@@ -38,7 +39,7 @@
                 android:id="@+id/add_new_plan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="#0F52BA"
                 android:text="Add New Plan" />
 
@@ -46,4 +47,21 @@
 
 
     </LinearLayout>
-</LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu="@menu/my_navigation_items"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

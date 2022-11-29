@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewManager;
-import android.view.ViewParent;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import edu.illinois.cs465.myquizapp.pojo.Combination;
@@ -28,6 +27,8 @@ import edu.illinois.cs465.myquizapp.pojo.Flight;
 public class PlanDetailActivity extends AppCompatActivity implements View.OnClickListener{
     String collectionName;
     String combinationName;
+
+    public List<Integer> mediaList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,21 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
             List<Flight> flights = new ArrayList<>();
             for(Flight f: flightSet){
                 flights.add(f);
+                int random = getRandomNumber(1, 4);
+                switch(random) {
+                    case 1:
+                        mediaList.add(R.drawable.media1);
+                        break;
+                    case 2:
+                        mediaList.add(R.drawable.media2);
+                        break;
+                    case 3:
+                        mediaList.add(R.drawable.media3);
+                        break;
+                    case 4:
+                        mediaList.add(R.drawable.media4);
+                        break;
+                }
             }
             FlightListAdapter adapter = new FlightListAdapter(this, 0, flights);
             listView.setAdapter(adapter);
@@ -56,6 +72,16 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
 
         Button addNewFlight = findViewById(R.id.addPlanButton);
         addNewFlight.setOnClickListener(this);
+
+        Button back = findViewById(R.id.back_btn);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PlanDetailActivity.this, PlanActivity.class);
+                intent.putExtra("collectionName", collectionName);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -81,6 +107,14 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.flightkeeper_detail_card, parent, false);
             }
 
+            Button deleteButton = convertView.findViewById(R.id.delete);
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Database.deleteFlightInCombination(collectionName, combinationName, flight);
+                }
+            });
+
             if(flight != null){
                 TextView departureTime = convertView.findViewById(R.id.departure_time);
                 departureTime.setText(flight.getDepartureTime());
@@ -94,10 +128,17 @@ public class PlanDetailActivity extends AppCompatActivity implements View.OnClic
                 airline.setText(flight.getAirline());
                 TextView totalPrice = convertView.findViewById(R.id.total_price);
                 totalPrice.setText(flight.getTotalPrice());
+
+                ImageView media = convertView.findViewById(R.id.media);
+                media.setImageResource(mediaList.get(position));
             }else{
                 convertView.setVisibility(View.GONE);
             }
             return convertView;
         }
+    }
+
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }

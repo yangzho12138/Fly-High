@@ -1,27 +1,17 @@
 package edu.illinois.cs465.myquizapp.pojo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Collection implements Serializable {
 
-    public int id;
     public String collectionName;
-    public List<Flight> flights;
+    public Integer numOfPlan;
+    public String lowestPrice;
 
-    public Collection(int id, String collectionName) {
-        this.id = id;
+    public Collection(String collectionName, Integer numOfPlan, String lowestPrice) {
         this.collectionName = collectionName;
-        this.flights = new ArrayList<>();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.numOfPlan = numOfPlan;
+        this.lowestPrice = lowestPrice;
     }
 
     public String getCollectionName() {
@@ -32,13 +22,19 @@ public class Collection implements Serializable {
         this.collectionName = collectionName;
     }
 
-    public List<Flight> getFlights() {
-        return flights;
+    public Integer getNumOfPlan() {
+        return numOfPlan;
     }
 
-    public void setFlights(List<Flight> flights) {
-        this.flights = flights;
+    public void setNumOfPlan(Integer numOfPlan) {
+        this.numOfPlan = numOfPlan;
     }
 
+    public String getLowestPrice() {
+        return lowestPrice;
+    }
 
+    public void setLowestPrice(String lowestPrice) {
+        this.lowestPrice = lowestPrice;
+    }
 }

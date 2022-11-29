@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_search"
+        android:title="Search"
+        android:enabled="true"
+        android:icon="@drawable/ic_search" />
+    <item android:id="@+id/action_combination"
+        android:title="Flight Keeper"
+        android:enabled="true"
+        android:icon="@drawable/ic_folder" />
+    <item android:id="@+id/action_trash"
+        android:title="Trash"
+        android:enabled="true"
+        android:icon="@drawable/ic_trash" />
+</menu>
+

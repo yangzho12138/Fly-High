@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -19,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.w3c.dom.Text;
@@ -38,12 +41,15 @@ import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 public class PlanActivity extends AppCompatActivity{
     String collectionName;
+    BottomNavigationView btn_view;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_main);
 
+        btn_view = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         // get the info from the DB
         collectionName = getIntent().getStringExtra("collectionName");
         // add collectionName to the screen
@@ -92,6 +98,29 @@ public class PlanActivity extends AppCompatActivity{
             }
         });
 
+        btn_view.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch(id){
+                    //check id
+
+                    case R.id.action_search:
+                        Intent intent1 = new Intent(PlanActivity.this, SearchMainActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case R.id.action_combination:
+                        Intent intent2 = new Intent(PlanActivity.this, FlightKeeperMainActivity.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.action_trash:
+                        Intent intent3 = new Intent(PlanActivity.this, TrashActivity.class);
+                        startActivity(intent3);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     void showCustomDialog() {
@@ -126,6 +155,26 @@ public class PlanActivity extends AppCompatActivity{
             }
             TextView textView = convertView.findViewById(R.id.combination_name);
             textView.setText(combination.getCombinationName());
+
+            Set<Flight> flightSet = combination.getFlights();
+            System.out.println(flightSet);
+            if(flightSet != null && flightSet.size() != 0){
+                TextView totalPrice = convertView.findViewById(R.id.plan_total_price);
+                Double sumPrice = 0.0;
+                for(Flight flight: flightSet){
+                    sumPrice += Double.parseDouble(flight.getTotalPrice().substring(1));
+                }
+                totalPrice.setText("Price in total: " + sumPrice);
+            }
+
+            Button deleteButton = convertView.findViewById(R.id.delete_button);
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Database.deleteCombination(collectionName, combination.getCombinationName());
+                }
+            });
+
             return convertView;
         }
     }

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchResultsActivity"
+    android:background="#CAE2F6">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/from_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/horizontalScrollView">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/1&#10;$120"
+                        android:backgroundTint="#82A0DA"
+                        android:id="@+id/button1"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/2&#10;$138"
+                        android:backgroundTint="#2155BD"
+                        android:id="@+id/button2"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/3&#10;$152"
+                        android:backgroundTint="#82A0DA"
+                        android:id="@+id/button3"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/4&#10;$166"
+                        android:backgroundTint="#82A0DA"
+                        android:id="@+id/button4"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/5&#10;$157"
+                        android:backgroundTint="#82A0DA"
+                        android:id="@+id/button5"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/6&#10;$180"
+                        android:backgroundTint="#82A0DA"
+                        android:id="@+id/button6"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/7&#10;$188"
+                        android:backgroundTint="#82A0DA"
+                        android:id="@+id/button7"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/8&#10;$178"
+                        android:backgroundTint="#82A0DA"
+                        android:id="@+id/button8"/>
+                </LinearLayout>
+
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <ListView android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:id="@+id/search_flights">
+        </ListView>
+
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BACK"
+            android:layout_gravity="center"
+            android:backgroundTint="#2155BD"/>
+            
+
+
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
