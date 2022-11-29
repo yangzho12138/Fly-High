@@ -113,9 +113,9 @@ public class PlanAddNewActivity extends AppCompatActivity implements View.OnClic
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.flightkeeper_detail_card, parent, false);
             }
 
-            ImageButton btn1 = convertView.findViewById(R.id.button1);
+            ImageButton btn1 = convertView.findViewById(R.id.purchase);
             btn1.setVisibility(View.GONE);
-            ImageButton btn2 = convertView.findViewById(R.id.button2);
+            ImageButton btn2 = convertView.findViewById(R.id.delete);
             btn2.setVisibility(View.GONE);
 
             if(flight != null){

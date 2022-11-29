@@ -11,8 +11,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,16 +18,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import edu.illinois.cs465.myquizapp.pojo.Collection;
-import edu.illinois.cs465.myquizapp.pojo.CollectionStatus;
-import edu.illinois.cs465.myquizapp.pojo.Flight;
 
 public class FlightKeeperMainActivity extends AppCompatActivity {
 
@@ -103,7 +97,7 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     String name = collection.getCollectionName();
-                    Database.collections.remove(name);
+                    Database.deleteCollection(name);
                     showDeleteSuccessDialog();
                 }
 

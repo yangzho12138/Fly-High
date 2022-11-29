@@ -1,11 +1,13 @@
 package edu.illinois.cs465.myquizapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -16,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import edu.illinois.cs465.myquizapp.pojo.Flight;
 
@@ -104,7 +104,31 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
             airline.setText(flight.getAirline());
             TextView totalPrice = convertView.findViewById(R.id.total_price);
             totalPrice.setText(flight.getTotalPrice());
+
+            Button delete = convertView.findViewById(R.id.delete);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Database.deleteFlightFromCollection(collectionName, flight);
+                    showDeleteSuccessDialog();
+                }
+            });
+
             return convertView;
         }
+    }
+
+    void showDeleteSuccessDialog() {
+        final Dialog dialog = new Dialog(FlightKeeperDetailActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.flightkeeper_flight_delete_success);
+        dialog.show();
+
+        Button saveButton = dialog.findViewById(R.id.ok);
+        saveButton.setOnClickListener((v) -> {
+            dialog.dismiss();
+            this.recreate();
+        });
     }
 }

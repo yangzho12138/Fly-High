@@ -85,6 +85,12 @@ public class Database {
             collections.remove(collectionName);
     }
 
+    public static void deleteFlightFromCollection(String collectionName, Flight flight) {
+        if (collections.containsKey(collectionName)) {
+            collections.get(collectionName).remove(flight);
+        }
+    }
+
     public static void deleteCombination(String collectionName, String combinationName){
         Map<String, Set<Flight>> combinations = combinationsInCollection.get(collectionName);
         if(combinations.containsKey(combinationName))
