@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -97,6 +98,17 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
             TextView lowestPrice = convertView.findViewById(R.id.lowest_price);
             lowestPrice.setText(collection.getLowestPrice());
 
+            Button delete = convertView.findViewById(R.id.delete);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String name = collection.getCollectionName();
+                    Database.collections.remove(name);
+                    showDeleteSuccessDialog();
+                }
+
+            });
+
             return convertView;
         }
     }
@@ -113,6 +125,20 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
         saveButton.setOnClickListener((v) -> {
             String name = text.getText().toString();
             Database.addCollection(name);
+            dialog.dismiss();
+            this.recreate();
+        });
+    }
+
+    void showDeleteSuccessDialog() {
+        final Dialog dialog = new Dialog(FlightKeeperMainActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.flightkeeper_delete_success);
+        dialog.show();
+
+        Button saveButton = dialog.findViewById(R.id.ok);
+        saveButton.setOnClickListener((v) -> {
             dialog.dismiss();
             this.recreate();
         });

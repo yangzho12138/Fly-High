@@ -65,10 +65,15 @@ public class Database {
         }
         CollectionStatus cs = status.get(collectionName);
         if(cs == null) {
-            cs.setLowestPrice(flight.getTotalPrice());
+            cs = new CollectionStatus();
+            if(flight != null){
+                cs.setLowestPrice(flight.getTotalPrice());
+            }
             cs.setPlanNum(0);
         }else if(Double.parseDouble(cs.getLowestPrice()) > Double.parseDouble(flight.getTotalPrice())){
-            cs.setLowestPrice(flight.getTotalPrice());
+            if(flight != null){
+                cs.setLowestPrice(flight.getTotalPrice());
+            }
         }
         cs.setPlanNum(cs.getPlanNum() + 1);
         status.put(collectionName, cs);
