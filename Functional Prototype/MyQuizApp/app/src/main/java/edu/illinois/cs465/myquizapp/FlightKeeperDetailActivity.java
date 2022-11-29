@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import edu.illinois.cs465.myquizapp.pojo.Flight;
@@ -28,8 +27,7 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
     public static String collectionName;
     public String pageName = "details";
     public List<Flight> flights = new ArrayList<>();
-
-    public static List<String> media = Arrays.asList("media1", "media2", "media3", "media4");
+    public List<Integer> mediaList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +74,21 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
         if (Database.collections.containsKey(collectionName)) {
             for (Flight f : Database.collections.get(collectionName)) {
                 flights.add(f);
+                int random = getRandomNumber(1, 4);
+                switch(random) {
+                    case 1:
+                        mediaList.add(R.drawable.media1);
+                        break;
+                    case 2:
+                        mediaList.add(R.drawable.media2);
+                        break;
+                    case 3:
+                        mediaList.add(R.drawable.media3);
+                        break;
+                    case 4:
+                        mediaList.add(R.drawable.media4);
+                        break;
+                }
             }
         }
     }
@@ -108,8 +121,8 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
             TextView totalPrice = convertView.findViewById(R.id.total_price);
             totalPrice.setText(flight.getTotalPrice());
 
-//            ImageView image = convertView.findViewById(R.id.media);
-//            String random = media.get(0);
+            ImageView media = convertView.findViewById(R.id.media);
+            media.setImageResource(mediaList.get(position));
 
             Button delete = convertView.findViewById(R.id.delete);
             delete.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +132,6 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
                     showDeleteSuccessDialog();
                 }
             });
-
             return convertView;
         }
     }
@@ -136,5 +148,9 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
             dialog.dismiss();
             this.recreate();
         });
+    }
+
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }

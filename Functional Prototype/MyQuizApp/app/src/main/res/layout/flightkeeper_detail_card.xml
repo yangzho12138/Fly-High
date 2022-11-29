@@ -9,7 +9,6 @@
         android:id="@+id/media"
         android:layout_width="match_parent"
         android:layout_height="194dp"
-        app:srcCompat="@drawable/media"
         android:scaleType="centerCrop"
         android:alpha=".75"
         />
