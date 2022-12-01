@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#CAE2F6">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="30dp"
+        android:orientation="vertical"
+        android:textSize="22sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto Fill Success!"
+            android:textSize="25dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The following filters are filled"
+            android:textSize="15dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"/>
+
+        <TextView
+            android:id="@+id/origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="origin: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/destination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="destination: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/stops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="stops: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/bags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bags: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="duration: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/adult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="adult number: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/children"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="children number: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/infant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="infant number: N/A"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="price scope: N/A"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/begin_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Begin Search!"
+            android:backgroundTint="#0F52BA"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            ></Button>
+
+    </LinearLayout>
+
+</LinearLayout>

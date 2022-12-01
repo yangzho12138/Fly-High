@@ -33,15 +33,24 @@
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:gravity="bottom"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/add_new_plan"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#0F52BA"
                 android:text="Add New Plan" />
+
+            <Button
+                android:id="@+id/back_to_keeper"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:backgroundTint="#0F52BA"
+                android:text="Back" />
 
         </LinearLayout>
 

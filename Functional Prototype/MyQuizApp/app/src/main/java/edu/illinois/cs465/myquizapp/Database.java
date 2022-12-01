@@ -74,10 +74,8 @@ public class Database {
                 cs.setLowestPrice(flight.getTotalPrice());
             }
             cs.setPlanNum(0);
-        }else if(Double.parseDouble(cs.getLowestPrice()) > Double.parseDouble(flight.getTotalPrice())){
-            if(flight != null){
-                cs.setLowestPrice(flight.getTotalPrice());
-            }
+        }else if(flight != null && Double.parseDouble(cs.getLowestPrice()) > Double.parseDouble(flight.getTotalPrice())){
+            cs.setLowestPrice(flight.getTotalPrice());
         }
         cs.setPlanNum(cs.getPlanNum() + 1);
         status.put(collectionName, cs);

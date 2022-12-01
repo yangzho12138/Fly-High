@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import edu.illinois.cs465.myquizapp.pojo.Collection;
+import edu.illinois.cs465.myquizapp.pojo.CollectionStatus;
 import edu.illinois.cs465.myquizapp.pojo.Combination;
 import edu.illinois.cs465.myquizapp.pojo.Flight;
 

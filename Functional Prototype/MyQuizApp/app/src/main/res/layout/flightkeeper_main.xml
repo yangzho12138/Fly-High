@@ -23,7 +23,7 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="500dp"
             android:focusable="true"
             android:id="@+id/collections_main">
         </ListView>
@@ -39,13 +39,6 @@
         android:layout_marginLeft="100px"
         android:layout_marginRight="100px"
         >
-        <Button
-            android:id="@+id/add_new_keeper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="500dp"
-            android:backgroundTint="#0F52BA"
-            android:text="Add New" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

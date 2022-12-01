@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +39,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -111,23 +113,23 @@ public class SearchMainActivity extends AppCompatActivity implements
 
 
 
-        Spinner spin1 = (Spinner) findViewById(R.id.spinner1);
-        spin1.setOnItemSelectedListener(this);
-
-        //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa1 = new ArrayAdapter(this,R.layout.spinner_list,airline);
-        aa1.setDropDownViewResource(R.layout.spinner_list);
-        //Setting the ArrayAdapter data on the Spinner
-        spin1.setAdapter(aa1);
-
-        Spinner spin2 = (Spinner) findViewById(R.id.spinner2);
-        spin2.setOnItemSelectedListener(this);
-
-        //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa2 = new ArrayAdapter(this,R.layout.spinner_list,triptype);
-        aa2.setDropDownViewResource(R.layout.spinner_list);
-        //Setting the ArrayAdapter data on the Spinner
-        spin2.setAdapter(aa2);
+//        Spinner spin1 = (Spinner) findViewById(R.id.spinner1);
+//        spin1.setOnItemSelectedListener(this);
+//
+//        //Creating the ArrayAdapter instance having the country list
+//        ArrayAdapter aa1 = new ArrayAdapter(this,R.layout.spinner_list,airline);
+//        aa1.setDropDownViewResource(R.layout.spinner_list);
+//        //Setting the ArrayAdapter data on the Spinner
+//        spin1.setAdapter(aa1);
+//
+//        Spinner spin2 = (Spinner) findViewById(R.id.spinner2);
+//        spin2.setOnItemSelectedListener(this);
+//
+//        //Creating the ArrayAdapter instance having the country list
+//        ArrayAdapter aa2 = new ArrayAdapter(this,R.layout.spinner_list,triptype);
+//        aa2.setDropDownViewResource(R.layout.spinner_list);
+//        //Setting the ArrayAdapter data on the Spinner
+//        spin2.setAdapter(aa2);
 
         picker1 = findViewById(R.id.picker);
 
@@ -143,8 +145,8 @@ public class SearchMainActivity extends AppCompatActivity implements
             public void onClick(View v) {
                 fromValue = fromSearch.getQuery().toString();
                 toValue = toSearch.getQuery().toString();
-                spin1Value = spin1.getSelectedItem().toString();
-                spin2Value = spin2.getSelectedItem().toString();
+//                spin1Value = spin1.getSelectedItem().toString();
+//                spin2Value = spin2.getSelectedItem().toString();
                 numberValue = valueOf(picker1.getValue());
                 openNewActivity();
             }
@@ -200,6 +202,23 @@ public class SearchMainActivity extends AppCompatActivity implements
                         break;
                 }
                 return true;
+            }
+        });
+
+        ImageButton help = findViewById(R.id.help);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchMainActivity.this, HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton map = findViewById(R.id.map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // run Google Map API
             }
         });
     }
@@ -262,19 +281,7 @@ public class SearchMainActivity extends AppCompatActivity implements
                         toSearch.setQuery(filter.getDestination(),false);
                         toSearch.clearFocus();
 
-                        Spinner spin1 = (Spinner) findViewById(R.id.spinner1);
-                        ArrayAdapter aa1 = new ArrayAdapter(SearchMainActivity.this,R.layout.spinner_list,airline);
-                        aa1.setDropDownViewResource(R.layout.spinner_list);
-                        spin1.setAdapter(aa1);
-                        spin1.setSelection(aa1.getPosition("American"));
-                        spin1Value = spin1.getSelectedItem().toString();
-
-                        Spinner spin2 = (Spinner) findViewById(R.id.spinner2);
-                        ArrayAdapter aa2 = new ArrayAdapter(SearchMainActivity.this,R.layout.spinner_list,triptype);
-                        aa2.setDropDownViewResource(R.layout.spinner_list);
-                        spin2.setAdapter(aa2);
-                        spin2.setSelection(aa2.getPosition("One-way"));
-                        spin2Value = spin2.getSelectedItem().toString();
+                        showCustomDialog(collection.getCollectionName());
                     }
                 }
             });
@@ -291,5 +298,57 @@ public class SearchMainActivity extends AppCompatActivity implements
 
             return convertView;
         }
+    }
+
+    void showCustomDialog(String collectionName) {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.autofill_reminder);
+        dialog.show();
+
+        Filter filter = Database.autoFilter.get(collectionName);
+
+        if(!filter.getOrigin().equals("")){
+            TextView text = dialog.findViewById(R.id.origin);
+            text.setText("origin: " + filter.getOrigin());
+        }
+        if(!filter.getDestination().equals("")){
+            TextView text = dialog.findViewById(R.id.destination);
+            text.setText("destination: " + filter.getDestination());
+        }
+        if(filter.getStops() != 0){
+            TextView text = dialog.findViewById(R.id.stops);
+            text.setText("stops: " + filter.getStops());
+        }
+        if(filter.getBags() != 0){
+            TextView text = dialog.findViewById(R.id.bags);
+            text.setText("bags: " + filter.getBags());
+        }
+        if(filter.getDuration() != 0){
+            TextView text = dialog.findViewById(R.id.duration);
+            text.setText("duration: " + filter.getDuration());
+        }
+        if(filter.getAdult_cnt() != 0){
+            TextView text = dialog.findViewById(R.id.adult);
+            text.setText("adult number: " + filter.getAdult_cnt());
+        }
+        if(filter.getChildren_cnt() != 0){
+            TextView text = dialog.findViewById(R.id.children);
+            text.setText("children number: " + filter.getChildren_cnt());
+        }
+        if(filter.getInfant_cnt() != 0){
+            TextView text = dialog.findViewById(R.id.infant);
+            text.setText("infant number: " + filter.getInfant_cnt());
+        }
+        if(filter.getLowPrice() != 0 && filter.getHighPrice() != 0){
+            TextView text = dialog.findViewById(R.id.price);
+            text.setText("price scope: " + filter.getLowPrice() +" - " + filter.getHighPrice());
+        }
+
+        Button success = dialog.findViewById(R.id.begin_search);
+        success.setOnClickListener((v) -> {
+            dialog.dismiss();
+        });
     }
 }

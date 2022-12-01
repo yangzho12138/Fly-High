@@ -90,11 +90,13 @@
 
                 <ImageButton
                     android:id="@+id/button1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_marginRight="20px"
-                    android:src="@android:drawable/ic_menu_save"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cart"
+                    android:backgroundTint="#d6d7d7"/>
 
                 <ImageButton
                     android:id="@+id/button2"

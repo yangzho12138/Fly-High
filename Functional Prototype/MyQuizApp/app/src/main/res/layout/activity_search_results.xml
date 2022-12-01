@@ -105,7 +105,14 @@
             android:layout_gravity="center"
             android:backgroundTint="#2155BD"/>
             
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="click on the + button to add the tickets to flight keepers!"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

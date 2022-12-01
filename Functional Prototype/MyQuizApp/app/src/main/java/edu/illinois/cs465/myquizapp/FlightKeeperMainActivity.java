@@ -68,14 +68,6 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
             }
         });
 
-        Button openDialog = findViewById(R.id.add_new_keeper);
-        openDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showCustomDialog();
-            }
-        });
-
         btn_view.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -136,23 +128,6 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
 
             return convertView;
         }
-    }
-
-    void showCustomDialog() {
-        final Dialog dialog = new Dialog(FlightKeeperMainActivity.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(true);
-        dialog.setContentView(R.layout.flightkeeper_addnew);
-        dialog.show();
-
-        TextInputEditText text = dialog.findViewById(R.id.textField);
-        Button saveButton = dialog.findViewById(R.id.save);
-        saveButton.setOnClickListener((v) -> {
-            String name = text.getText().toString();
-            Database.addCollection(name);
-            dialog.dismiss();
-            this.recreate();
-        });
     }
 
     void showDeleteSuccessDialog() {

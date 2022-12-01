@@ -36,6 +36,7 @@ import java.util.Map;
 import java.util.Set;
 
 import edu.illinois.cs465.myquizapp.Database;
+import edu.illinois.cs465.myquizapp.pojo.CollectionStatus;
 import edu.illinois.cs465.myquizapp.pojo.Combination;
 import edu.illinois.cs465.myquizapp.pojo.Flight;
 
@@ -121,6 +122,16 @@ public class PlanActivity extends AppCompatActivity{
                 return true;
             }
         });
+
+        Button back = findViewById(R.id.back_to_keeper);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent backToKeeper = new Intent(PlanActivity.this, FlightKeeperDetailActivity.class);
+                backToKeeper.putExtra("collectionName", collectionName);
+                startActivity(backToKeeper);
+            }
+        });
     }
 
     void showCustomDialog() {
@@ -165,6 +176,11 @@ public class PlanActivity extends AppCompatActivity{
                     sumPrice += Double.parseDouble(flight.getTotalPrice().substring(1));
                 }
                 totalPrice.setText("Price in total: " + sumPrice);
+                CollectionStatus cs = Database.status.get(collectionName);
+                if(cs.getLowestPrice()== null || Double.parseDouble(cs.getLowestPrice()) > sumPrice){
+                    cs.setLowestPrice(sumPrice.toString());
+                }
+
             }
 
             Button deleteButton = convertView.findViewById(R.id.delete_button);
