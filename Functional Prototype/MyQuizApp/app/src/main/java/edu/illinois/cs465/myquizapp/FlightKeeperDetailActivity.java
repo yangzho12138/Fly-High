@@ -36,7 +36,7 @@ public class FlightKeeperDetailActivity extends AppCompatActivity {
 
         getDetailView();
 
-        TextView title = (TextView) findViewById(R.id.flight_keeper_title);
+        TextView title = findViewById(R.id.flight_keeper_title);
         title.setText(this.collectionName);
 
         ListView listView = (ListView) findViewById(R.id.flights);

@@ -65,7 +65,7 @@ public class SearchResultsActivity extends AppCompatActivity {
             flights.add(new Flight("4", "Chicago", "Houston", "6:30am", "9:30am", "$199", "AA", 2));
             flights.add(new Flight("5", "Chicago", "Houston", "1:30am", "3:30am", "$220", "AA", 2));
             flights.add(new Flight("6", "Chicago", "Houston", "10:30am", "12:30pm", "$170", "UA", 1));
-        }else if(from.equals("NYC") && to.equals("Boston")){
+        }else if(from.equals("Houston") && to.equals("Boston")){
             flights.add(new Flight("7", "Houston", "Boston", "4:32am", "7:30am", "$273", "AA", 2));
             flights.add(new Flight("8", "Houston", "Boston", "7:46pm", "9:30pm", "$190", "AA", 2));
             flights.add(new Flight("9", "Houston", "Boston", "5:40am", "7:50am", "$322", "UA", 1));
@@ -266,6 +266,11 @@ public class SearchResultsActivity extends AppCompatActivity {
         List<String> collectionNames = new ArrayList<>();
         for (Map.Entry entry : Database.collections.entrySet()) {
             collectionNames.add(entry.getKey().toString());
+        }
+
+        TextView emptyMessage = dialog.findViewById(R.id.message);
+        if (Database.collections.size() != 0) {
+            emptyMessage.setVisibility(View.GONE);
         }
 
         ListView listView = dialog.findViewById(R.id.select_collections);

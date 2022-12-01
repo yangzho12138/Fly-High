@@ -44,7 +44,6 @@ public class PlanActivity extends AppCompatActivity{
     String collectionName;
     BottomNavigationView btn_view;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +55,24 @@ public class PlanActivity extends AppCompatActivity{
         // add collectionName to the screen
         TextView title = findViewById(R.id.title);
         title.setText(collectionName);
+
+        // add recommended combination
+        Set<Flight> flightSet = Database.collections.get(collectionName);
+        System.out.println(collectionName +" "+ flightSet);
+        System.out.println(Database.collections.get(collectionName));
+        Map<String, Set<Flight>> recommendedCombination = new HashMap<>();
+        Set<Flight> recommendedFlights = new HashSet<>();
+        String origin = "";
+        String to = "";
+        for(Flight f: flightSet){
+            if(!f.getOrigin().equals(origin) && !f.getDestination().equals(to)){
+                recommendedFlights.add(f);
+                origin = f.getOrigin();
+                to = f.getDestination();
+            }
+        }
+        recommendedCombination.put("recommended  plan", recommendedFlights);
+        Database.combinationsInCollection.put(collectionName, recommendedCombination);
 
         // get plans
         Map<String, Set<Flight>> combinations = Database.combinationsInCollection.get(collectionName);
@@ -177,6 +194,9 @@ public class PlanActivity extends AppCompatActivity{
                 }
                 totalPrice.setText("Price in total: " + sumPrice);
                 CollectionStatus cs = Database.status.get(collectionName);
+                if(cs == null){
+                    cs = new CollectionStatus();
+                }
                 if(cs.getLowestPrice()== null || Double.parseDouble(cs.getLowestPrice()) > sumPrice){
                     cs.setLowestPrice(sumPrice.toString());
                 }

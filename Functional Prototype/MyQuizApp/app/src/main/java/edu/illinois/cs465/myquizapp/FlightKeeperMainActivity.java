@@ -40,6 +40,10 @@ public class FlightKeeperMainActivity extends AppCompatActivity {
 
         btn_view = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
+        TextView emptyMessage = findViewById(R.id.message);
+        if (Database.collections.size() != 0) {
+            emptyMessage.setVisibility(View.GONE);
+        }
 
         for (Map.Entry entry : Database.collections.entrySet()) {
             String collectionName = entry.getKey().toString();
