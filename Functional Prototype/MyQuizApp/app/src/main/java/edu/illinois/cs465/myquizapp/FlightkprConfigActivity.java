@@ -129,6 +129,8 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
 
             // TODO: how to get the autoFilter instance in database, then do mydb.addAutoFilter(curr_filter)
             if (Database.autoFilter.containsKey(collectionName)){
+                Database.autoFilter.get(collectionName).origin = from;
+                Database.autoFilter.get(collectionName).destination = to;
                 Database.autoFilter.get(collectionName).stops = stops;
                 Database.autoFilter.get(collectionName).bags = bags;
                 Database.autoFilter.get(collectionName).lowPrice = low;
