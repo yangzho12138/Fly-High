@@ -317,27 +317,27 @@ public class SearchMainActivity extends AppCompatActivity implements
             TextView text = dialog.findViewById(R.id.destination);
             text.setText("destination: " + filter.getDestination());
         }
-        if(filter.getStops() != 0){
+        if(filter.getStops() != null){
             TextView text = dialog.findViewById(R.id.stops);
             text.setText("stops: " + filter.getStops());
         }
-        if(filter.getBags() != 0){
+        if(filter.getBags() != null){
             TextView text = dialog.findViewById(R.id.bags);
             text.setText("bags: " + filter.getBags());
         }
-        if(filter.getDuration() != 0){
+        if(filter.getDuration() != null){
             TextView text = dialog.findViewById(R.id.duration);
             text.setText("duration: " + filter.getDuration());
         }
-        if(filter.getAdult_cnt() != 0){
+        if(filter.getAdult_cnt() != null){
             TextView text = dialog.findViewById(R.id.adult);
             text.setText("adult number: " + filter.getAdult_cnt());
         }
-        if(filter.getChildren_cnt() != 0){
+        if(filter.getChildren_cnt() != null){
             TextView text = dialog.findViewById(R.id.children);
             text.setText("children number: " + filter.getChildren_cnt());
         }
-        if(filter.getInfant_cnt() != 0){
+        if(filter.getInfant_cnt() != null){
             TextView text = dialog.findViewById(R.id.infant);
             text.setText("infant number: " + filter.getInfant_cnt());
         }
