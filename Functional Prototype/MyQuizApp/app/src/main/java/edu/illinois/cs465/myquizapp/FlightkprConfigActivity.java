@@ -80,6 +80,10 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
     public void onClick(View v) {
         if (v.getId() == R.id.advanced_op) {
             Intent intent = new Intent(FlightkprConfigActivity.this, AdvancedActivity.class);
+            if (lower_bound.getText().toString().equals(""))
+                lower_bound.setText("0");
+            if (upper_bound.getText().toString().equals(""))
+                upper_bound.setText("0");
             Integer low = Integer.parseInt(lower_bound.getText().toString());
             Integer upper = Integer.parseInt(upper_bound.getText().toString());
             String from = from_location.getText().toString();
@@ -101,6 +105,10 @@ public class FlightkprConfigActivity extends AppCompatActivity implements View.O
             startActivity(intent);
         }
         else if (v.getId() == R.id.confirm){
+            if (lower_bound.getText().toString().equals(""))
+                lower_bound.setText("0");
+            if (upper_bound.getText().toString().equals(""))
+                upper_bound.setText("0");
             Integer low = Integer.parseInt(lower_bound.getText().toString());
             Integer upper = Integer.parseInt(upper_bound.getText().toString());
             String from = from_location.getText().toString();
