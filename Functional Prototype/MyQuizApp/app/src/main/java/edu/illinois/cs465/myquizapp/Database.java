@@ -20,6 +20,7 @@ public class Database {
 
     public static void addCollection(String collectionName) {
         collections.put(collectionName, new HashSet<Flight>());
+        combinationsInCollection.put(collectionName, new HashMap<>());
     }
 
     public static void addFlightToCollection(String collectionName, @NonNull Flight flight){

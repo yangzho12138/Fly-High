@@ -56,11 +56,11 @@ public class PlanActivity extends AppCompatActivity{
         TextView title = findViewById(R.id.title);
         title.setText(collectionName);
 
+        // get plans
+        Map<String, Set<Flight>> combinations = Database.combinationsInCollection.get(collectionName);
+
         // add recommended combination
         Set<Flight> flightSet = Database.collections.get(collectionName);
-        System.out.println(collectionName +" "+ flightSet);
-        System.out.println(Database.collections.get(collectionName));
-        Map<String, Set<Flight>> recommendedCombination = new HashMap<>();
         Set<Flight> recommendedFlights = new HashSet<>();
         String origin = "";
         String to = "";
@@ -71,11 +71,9 @@ public class PlanActivity extends AppCompatActivity{
                 to = f.getDestination();
             }
         }
-        recommendedCombination.put("recommended  plan", recommendedFlights);
-        Database.combinationsInCollection.put(collectionName, recommendedCombination);
+        combinations.put("recommended  plan", recommendedFlights);
+        Database.combinationsInCollection.put(collectionName, combinations);
 
-        // get plans
-        Map<String, Set<Flight>> combinations = Database.combinationsInCollection.get(collectionName);
         // test case
 //        Map<String, Set<Flight>> combinations = new HashMap<>();
 //        combinations.put("planA", new HashSet<>());
